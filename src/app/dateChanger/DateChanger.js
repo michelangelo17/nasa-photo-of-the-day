@@ -6,7 +6,7 @@ const DateChanger = (props) => {
       <input
         onChange={(e) => props.setChangeDate(e.target.value)}
         type='date'
-        class='dateInput'
+        className='dateInput'
         name='chooseDate'
       />
     </>

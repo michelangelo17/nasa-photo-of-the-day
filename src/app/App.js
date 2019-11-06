@@ -7,12 +7,14 @@ import Description from './description/Description';
 import DateChanger from './dateChanger/DateChanger';
 import Date from './date/Date';
 import moment from "moment";
+import MarsWeather from "./APIs/MarsWeather";
+import TodaysMarsWeather from "./todaysMarsWeather/TodaysMarsWeather";
 
 function App() {
   const todaysDate = moment().format('YYYY-MM-DD');
   const [changeDate, setChangeDate] = useState(todaysDate);
   const picData = PotD(changeDate);
-  //used variables to make props pass cleaner, is messy looking here though, may change
+  const weatherObject = MarsWeather();
   let picDate = picData.date;
   let picDescription = picData.explanation;
   let picHDimage = picData.hdurl;
@@ -31,6 +33,7 @@ function App() {
       <Description picDescription={picDescription} />
       <Date picDate={picDate} />
       <DateChanger setChangeDate={setChangeDate} />
+      <TodaysMarsWeather weatherObject={weatherObject} />
     </div>
   );
 }
