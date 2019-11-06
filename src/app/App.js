@@ -1,27 +1,36 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import "./App.css";
 import PotD from './APIs/PotD';
 import Title from './title/Title';
 import Image from './image/Image';
 import Description from './description/Description';
+import DateChanger from './dateChanger/DateChanger';
 import Date from './date/Date';
+import moment from "moment";
 
 function App() {
-  const [data, setData] = useState({date: '', explanation: '', hdurl: '', media_type: '', title: '', url: ''});
-  let nasaDate = data.date;
-  let nasaDescription = data.explanation;
-  let nasaHDimage = data.hdurl;
-  let mediaType = data.media_type;
-  let nasaTitle = data.title;
-  let standardImage = data.url;
-  console.log(nasaDate, nasaDescription, nasaHDimage, mediaType, nasaTitle, standardImage);
+  const todaysDate = moment().format('YYYY-MM-DD');
+  const [changeDate, setChangeDate] = useState(todaysDate);
+  const picData = PotD(changeDate);
+  //used variables to make props pass cleaner, is messy looking here though, may change
+  let picDate = picData.date;
+  let picDescription = picData.explanation;
+  let picHDimage = picData.hdurl;
+  let picMediaType = picData.media_type;
+  let picTitle = picData.title;
+  let picStandardImage = picData.url;
+  
   return (
     <div className="App">
-      <PotD setData={setData} />
-      <Title />
-      <Image />
-      <Description />
-      <Date />
+      <Title picTitle={picTitle} />
+      <Image 
+        picHDimage={picHDimage} 
+        picMediaType={picMediaType}
+        picStandardImage={picStandardImage}
+      />
+      <Description picDescription={picDescription} />
+      <Date picDate={picDate} />
+      <DateChanger setChangeDate={setChangeDate} />
     </div>
   );
 }

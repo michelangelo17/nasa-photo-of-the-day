@@ -1,7 +1,11 @@
 import React from 'react';
 
 const Description = props => {
-  return null;
+  return (
+    <>
+      <p>{props.picDescription}</p>
+    </>
+  )
 }
 
 export default Description;
