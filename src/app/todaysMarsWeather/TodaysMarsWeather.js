@@ -1,5 +1,6 @@
 import React from 'react';
 import moment from 'moment';
+import { MarsContainer } from './TodaysMarsWeatherSC'
 
 const TodaysMarsWeather = props => {
   let imperialHigh;
@@ -15,15 +16,15 @@ const TodaysMarsWeather = props => {
   } 
   correctFormats(props.weatherObject);
   return (
-    <>
+    <MarsContainer>
       <h2>Most Recent Mars Weather Updates</h2>
       <h3>It's {props.weatherObject.season} on Mars!</h3>
-      <p>The weather report for {formatedDate}.</p>
+      <p>The weather report for {formatedDate}:</p>
       <p>High Temp: {imperialHigh}&deg;F</p>
       <p>Low Temp: {imperialLow}&deg;F</p>
       <p>Average Wind Speed: {imperialSpeed}mph</p>
       <p>Wind Direction: {props.weatherObject.averageWindDirection}</p>
-    </>
+    </MarsContainer>
   )
 }
 
