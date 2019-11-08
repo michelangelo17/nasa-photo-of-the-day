@@ -1,9 +1,10 @@
 import React from 'react';
+import {H1} from '../globalEmotions/GlobalEmotions'
 
 const Title = props => {
   return (
     <>
-      <h1>{props.picTitle}</h1>
+      <H1>{props.picTitle}</H1>
     </>
   )
 }

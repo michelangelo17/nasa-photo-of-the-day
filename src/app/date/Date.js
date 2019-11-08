@@ -1,9 +1,10 @@
 import React from 'react';
+import { P } from '../globalEmotions/GlobalEmotions';
 
 const Date = props => {
   return (
     <>
-      <p>Now viewing: {props.picDate}</p>
+      <P>Now viewing: {props.picDate}</P>
     </>
   )
 }

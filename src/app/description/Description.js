@@ -1,9 +1,10 @@
 import React from 'react';
+import { P } from '../globalEmotions/GlobalEmotions';
 
 const Description = props => {
   return (
     <>
-      <p>{props.picDescription}</p>
+      <P>{props.picDescription}</P>
     </>
   )
 }
